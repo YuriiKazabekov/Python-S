@@ -1,12 +1,12 @@
-import imp
-input_data = input()
-input_data = 'print(' + input_data + ')'
-f = open('temp.py', 'w')
-f.write(input_data)  # python will convert \n to os.linesep
-f.close()
-#imp.reload(temp) 
-import temp
+import telebot
+token = '901123375:AAEkqavK06oVLcG517dG1Vl_TPRqV-a2-zA'
 
+bot = telebot.TeleBot(token)
+
+
+@bot.message_handler()
+def hellower(message):
+	bot.send_message(message.chat.id, 'Hello')
   
   
-  
+bot.polling()
